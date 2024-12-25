@@ -1,0 +1,83 @@
+{
+    "projectName": "MappingClient",
+    "layers": [
+        {
+            "title": "OilSandsProjectBoundaries",
+            "id": "1",
+            "type": "ArcGisMapService",
+            "sourceSettings": {
+                "url": "https://sampleserver6.arcgisonline.com/arcgis/rest/services/OilSandsProjectBoundaries/MapServer"
+            },
+            "selectable": true,
+            "identify": {
+                "enabledIdentify": true
+            }
+        },
+        {
+            "title": "railway_fr",
+            "id": "railway_fr",
+            "type": "WMS",
+            "sourceSettings": {
+                "url": "https://cartes.geogratis.gc.ca/wms/railway_fr",
+                "params": {
+                    "LAYERS": "railway"
+                },
+                "ratio": 1,
+                "serverType": "mapserver"
+            },
+            "selectable": true,
+            "identify": {
+                "enabledIdentify": true
+            }
+        },
+        {
+            "title": "hydro_network",
+            "id": "hydro_network",
+            "type": "WMS",
+            "sourceSettings": {
+                "url": "https://cartes.geogratis.gc.ca/wms/hydro_network_fr",
+                "params": {
+                    "LAYERS": "hydro_network"
+                },
+                "ratio": 1,
+                "serverType": "mapserver"
+            },
+            "selectable": true,
+            "identify": {
+                "enabledIdentify": true
+            }
+        },
+        {
+            "title": "ParcelTime",
+            "id": "ParcelTime_0",
+            "type": "ArcGisFeatureService",
+            "sourceSettings": {
+                "url": "https://services7.arcgis.com/hFo7GO2CrHDM1QVm/arcgis/rest/services/ParcelTime/FeatureServer/0"
+            },
+            "selectable": true,
+            "identify": {
+                "enabledIdentify": true
+            }
+        }
+    ],
+    "basemap": {
+        "imagery": 1,
+        "topo": 1,
+        "osm": 1,
+        "default": "osm",
+        "customBaseMaps": [
+            {
+                "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                "name": "World Imagery"
+            }
+        ]
+    },
+    "mapSettings": {
+        "projection": {
+            "id": "",
+            "params": ""
+        },
+        "center": [ -12407924.740542205, 7589341.375249548 ],
+        "zoomLevel": 8
+    }
+}

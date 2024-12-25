@@ -1,0 +1,29 @@
+{
+  "name": "mapping-client-arch",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zlatmar/mapping-client-arch.git"
+  },
+  "author": "Zlatoslav Marchev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlatmar/mapping-client-arch/issues"
+  },
+  "homepage": "https://github.com/zlatmar/mapping-client-arch#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "ol": "^9.1.0"
+  }
+}
