@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import Toggle from '../../resources/toggle.png';
 import Untoggle from '../../resources/untoggle.png';
@@ -9,7 +9,6 @@ const drawerWidth = 450;
 
 
 const SideDrawerContainer = () => {
-
     const [open, setOpen] = useState(true);
 
     const handleDrawerClose = () => {
@@ -18,6 +17,21 @@ const SideDrawerContainer = () => {
 
     const handleDrawerOpen = () => {
         setOpen(true);
+    }
+
+    const getButtonStyles = (width: number, backgroundIcon: string): CSSProperties => {
+        return {
+            position: 'absolute',
+            left: width,
+            top: '2.6rem',
+            width: 22,
+            height: 48,
+            border: 'none',
+            zIndex: 3,
+            background: 'url(' + backgroundIcon + ') no-repeat left top',
+            outline: 'none',
+            cursor: 'pointer',
+        }
     }
 
     
@@ -42,19 +56,7 @@ const SideDrawerContainer = () => {
                 <div style={{backgroundColor: 'rgb(255, 255, 255, 0.8)', width: drawerWidth, height: '100%'}}>
                     <SideDrawer />
                     <button 
-                        style={
-                            {
-                                position: 'absolute',
-                                left: drawerWidth,
-                                top: '2.6rem',
-                                width: 22,
-                                height: 48,
-                                border: 'none',
-                                zIndex: 3,
-                                background: 'url(' + Toggle + ') no-repeat left top',
-                                outline: 'none'
-                            }
-                        }
+                        style={getButtonStyles(drawerWidth , Toggle)}
                         onClick={handleDrawerClose}
                     />
                 </div>
@@ -64,19 +66,7 @@ const SideDrawerContainer = () => {
                 !open
                 ?
                 <button 
-                    style={
-                        {
-                            position: 'absolute',
-                            left: 0,
-                            top: '2.6rem',
-                            width: 22,
-                            height: 48,
-                            border: 'none',
-                            zIndex: 3,
-                            background: 'url(' + Untoggle + ') no-repeat left top',
-                            outline: 'none'
-                        }
-                    }
+                    style={getButtonStyles(0, Untoggle)}
                     onClick={handleDrawerOpen}
                 />
                 :
