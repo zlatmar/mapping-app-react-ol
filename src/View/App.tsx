@@ -7,19 +7,15 @@ import IdentifyManager from '../Domain/Identify/IdentifyManager';
 import { AppConfig } from './AppConfiguration/types/AppConfig';
 import AppMap from './Components/AppMap';
 import MapTools from './Components/Tools/MapTools';
+import SideDrawerContainer from './Components/SideDrawer/SideDrawerContainer';
 
 
 const App = () => {
     const [loading, setLoading] = useState(true);
 
-    // useEffect(() => {
-    //     console.log('counter')
-    // }, [])
-
     useEffect(() => {
         if (loading) {
             loadApp();
-            console.log('App loaded');
             setLoading(false);
         }
 
@@ -52,6 +48,7 @@ const App = () => {
     return (
         <div>
             <MapTools />
+            <SideDrawerContainer />
             <AppMap />
         </div>
     );

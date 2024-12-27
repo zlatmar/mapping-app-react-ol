@@ -12,7 +12,7 @@ const MapTools = () => {
             right: '1.5rem', 
             top: '1.5rem', 
             cursor: 'pointer', 
-            background: 'rgb(211,211,211,0.5)',
+            background: 'rgba(255, 255, 255, 0.8)',
             borderRadius: '5px',
             padding: '0.5rem'
         }}>
