@@ -34,7 +34,7 @@ export default class MapManagerCore implements IMapManagerCore {
                 }),
             ],
             controls: [
-                new Zoom(),
+                // new Zoom(),
             ],
         });
     }

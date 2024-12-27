@@ -5,7 +5,8 @@ import MapManager from '../Domain/Map/MapManager';
 import LayersManager from '../Domain/Layers/LayerManager';
 import IdentifyManager from '../Domain/Identify/IdentifyManager';
 import { AppConfig } from './AppConfiguration/types/AppConfig';
-import AppMap from './components/AppMap';
+import AppMap from './Components/AppMap';
+import MapTools from './Components/Tools/MapTools';
 
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
 
     return (
         <div>
+            <MapTools />
             <AppMap />
         </div>
     );
