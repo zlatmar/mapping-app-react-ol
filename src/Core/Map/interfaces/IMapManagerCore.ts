@@ -1,4 +1,4 @@
-import { MapSettings } from "../../../View/AppConfiguration/AppConfigTypes";
+import { MapSettings } from "../../../View/AppConfiguration/types/MapSettings";
 import IAppMap from "./IAppMap";
 import AppMapView from "./AppMapView";
 import ILayer from "../../Layers/interfaces/ILayer";

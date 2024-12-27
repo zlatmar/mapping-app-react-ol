@@ -1,5 +1,5 @@
 import MapManagerCore from "../../Core/Map/MapManagerCore";
-import { MapSettings } from "../../View/AppConfiguration/AppConfigTypes";
+import { MapSettings } from "../../View/AppConfiguration/types/MapSettings";
 
 export default class MapManager extends MapManagerCore {
     private static instance: MapManager | null = null;

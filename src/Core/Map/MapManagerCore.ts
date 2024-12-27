@@ -9,7 +9,7 @@ import View from "ol/View";
 import { Zoom } from "ol/control";
 import { OSM } from 'ol/source.js';
 import { Tile as TileLayer } from 'ol/layer.js';
-import { MapSettings } from "../../View/AppConfiguration/AppConfigTypes";
+import { MapSettings } from "../../View/AppConfiguration/types/MapSettings";
 import ILayer from "../Layers/interfaces/ILayer";
 
 export default class MapManagerCore implements IMapManagerCore {
