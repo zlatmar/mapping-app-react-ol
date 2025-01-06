@@ -218,6 +218,48 @@ export default class LayersManagerCore implements ILayersManagerCore {
         return null;
     }
 
+    public async getLayerInfo(layer: ILayer) {
+        const layerSource = layer.getSource();
+        const url = (layerSource as ImageArcGISRest | VectorSource).getUrl() || '';
+        const mapLayersInfo = [];
+
+        try {
+            if (layer.type === MapServiceTypes.ARCGIS_MAP_SERVICE) {
+                const result = await axios.get(`${url}?f=json`)
+                const targetLayersInfo = result.data.layers;
+                targetLayersInfo.forEach((layerInfo: any) => {
+                    mapLayersInfo.push({id: layerInfo.id, title: layerInfo.name});
+                });
+            } else if (layer.type === MapServiceTypes.WMS) {
+                const result = await axios.get(`${url}?request=GetCapabilities&service=WMS`, {
+                    headers: {
+                        'Content-Type': 'application/xml'
+                    }
+                });
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(result.data, "text/xml");
+                const layers = xmlDoc.getElementsByTagName('Layer');
+                for (let i = 0; i < layers.length; i++) {
+                    const layer = layers[i];
+                    const name = layer.getElementsByTagName('Name')[0].textContent;
+                    const title = layer.getElementsByTagName('Title')[0].textContent;
+                    mapLayersInfo.push({title, id: name});
+                }
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
+        return {
+            title: layer.title,
+            type: layer.type,
+            layerId: layer.layerId,
+            layerUrl: typeof url === 'string' ? url : '',
+            show: layer.getVisible(),
+            mapLayersInfo
+        }
+    }
+
     private async layerLoader({ extent, resolution, projection, layerUrl, esrijsonFormat, vectorSource }: ILayerLoader & { vectorSource: VectorSource }) {
         try {
             const features: Feature<Geometry>[] = await arcgisRestLoader({ extent, resolution, projection, layerUrl, esrijsonFormat })
