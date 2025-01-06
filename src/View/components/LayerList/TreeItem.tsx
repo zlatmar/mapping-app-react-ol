@@ -38,7 +38,7 @@ interface StyledTreeItemProps
 	bgColorForDarkMode?: string;
 	color?: string;
 	colorForDarkMode?: string;
-	labelIcon: React.ElementType; //<SvgIconProps>;
+	labelIcon?: React.ElementType;
 	rowIcons?: JSX.Element[];
 }
 
@@ -110,6 +110,7 @@ export const CustomTreeItem = React.forwardRef(function CustomTreeItem(
 		'--tree-view-color': theme.palette.mode !== 'dark' ? color : colorForDarkMode,
 		'--tree-view-bg-color':
 			theme.palette.mode !== 'dark' ? bgColor : bgColorForDarkMode,
+		
 	};
 
 	return (
@@ -123,6 +124,9 @@ export const CustomTreeItem = React.forwardRef(function CustomTreeItem(
 							focused: status.focused,
 						}),
 					})}
+					style={{
+							gap: 'unset',
+					}}
 				>
 					{
 						status.expandable
@@ -143,7 +147,15 @@ export const CustomTreeItem = React.forwardRef(function CustomTreeItem(
 							pr: 0,
 						}}
 					>
-						<Box component={LabelIcon} color="inherit" sx={{ mr: 1, width: '10%' }} />
+						{
+							LabelIcon
+							?
+							<div style={{width: '10%'}}>
+								<Box component={LabelIcon} color="inherit" sx={{ mr: 1 }} />
+							</div>
+							:
+							null
+						}
 						<Typography
 							{...getLabelProps({
 								variant: 'body2',

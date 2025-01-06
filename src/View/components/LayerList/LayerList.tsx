@@ -10,6 +10,8 @@ import ZoomToIcon from '../../resources/zoom_to.svg';
 import LegendIcon from '../../resources/legend.svg';
 import Delete from '../../resources/delete.svg';
 import { RowButtonIcon } from './RowButtonIcon';
+import VisibilityIcon from '../../resources/eye.svg';
+import HideVisibilityIcon from '../../resources/eye_hide.svg';
 
 
 export type LayerListProps = {
@@ -32,7 +34,6 @@ const LayerList = (props: LayerListProps) => {
     return (
         <div style={{ width: '100%' }}>
             <SimpleTreeView
-                // aria-label="gmail"
                 defaultExpandedItems={layers.map((layer) => (`main-tree-item-${layer.mapName}`))}
                 slots={{
                     expandIcon: ArrowRightIcon,
@@ -56,7 +57,8 @@ const LayerList = (props: LayerListProps) => {
                                         key={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
                                         itemId={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
                                         label={mapLayer.layerName}
-                                        labelIcon={LayerListIconComponent}
+                                        labelIcon={() => <RowButtonIcon title={"Show"} image={mapLayer.show ? VisibilityIcon : HideVisibilityIcon} clickHandler={() => console.log('Visibility clickHandler')} />
+                                    }
                                         // color="#1a73e8"
                                         // bgColor="#e8f0fe"
                                         colorForDarkMode="#B8E7FB"
