@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { SvgIconProps } from '@mui/material/SvgIcon';
-import LayerListIcon from '../../resources/layers.svg';
 import { CustomTreeItem } from './TreeItem';
 import { SimpleTreeView } from '@mui/x-tree-view';
 import { alpha } from '@mui/material';
@@ -12,17 +10,13 @@ import Delete from '../../resources/delete.svg';
 import { RowButtonIcon } from './RowButtonIcon';
 import VisibilityIcon from '../../resources/eye.svg';
 import HideVisibilityIcon from '../../resources/eye_hide.svg';
+import { LayerListIconComponent } from './LayerListIconComponent';
 
 
 export type LayerListProps = {
     layers: any[];
 }
 
-const LayerListIconComponent = (props: SvgIconProps) => {
-    return (
-        <div style={{ height: '2rem', width: '2rem', backgroundImage: 'url(' + LayerListIcon + ')', backgroundRepeat: "no-repeat", backgroundPosition: 'center' }}></div>
-    )
-}
 
 const LayerList = (props: LayerListProps) => {
     const { layers } = props;
