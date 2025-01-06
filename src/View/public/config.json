@@ -14,28 +14,11 @@
             }
         },
         {
-            "title": "railway_fr",
-            "id": "railway_fr",
-            "type": "WMS",
-            "sourceSettings": {
-                "url": "https://cartes.geogratis.gc.ca/wms/railway_fr",
-                "params": {
-                    "LAYERS": "railway"
-                },
-                "ratio": 1,
-                "serverType": "mapserver"
-            },
-            "selectable": true,
-            "identify": {
-                "enabledIdentify": true
-            }
-        },
-        {
             "title": "hydro_network",
             "id": "hydro_network",
             "type": "WMS",
             "sourceSettings": {
-                "url": "https://cartes.geogratis.gc.ca/wms/hydro_network_fr",
+                "url": "https://cartes.geogratis.gc.ca/wms/hydro_network_en",
                 "params": {
                     "LAYERS": "hydro_network"
                 },
