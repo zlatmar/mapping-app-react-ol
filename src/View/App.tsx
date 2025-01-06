@@ -12,6 +12,7 @@ import SideDrawerContainer from './Components/SideDrawer/SideDrawerContainer';
 
 const App = () => {
     const [loading, setLoading] = useState(true);
+    const [layerList, setLayerList] = useState<any[]>([]);
 
     useEffect(() => {
         if (loading) {
@@ -29,6 +30,12 @@ const App = () => {
             const layersManager = LayersManager.getInstance((configFile as AppConfig).layers, mapManager?.map);
     
             layersManager.loadLayers();
+
+            layersManager.getAppLayers().then((layers) => {
+                setLayerList(layers);
+            })
+
+            // setLayerList(layersManager.getMapLayers());
     
             const map = mapManager?.map;
             if (map) {
@@ -48,7 +55,7 @@ const App = () => {
     return (
         <div>
             <MapTools />
-            <SideDrawerContainer />
+            <SideDrawerContainer layers={layerList} />
             <AppMap />
         </div>
     );

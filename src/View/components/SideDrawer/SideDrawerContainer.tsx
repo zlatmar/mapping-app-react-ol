@@ -4,11 +4,12 @@ import Drawer from '@mui/material/Drawer';
 import Toggle from '../../resources/toggle.png';
 import Untoggle from '../../resources/untoggle.png';
 import SideDrawer from './SideDrawer';
+import { LayerListProps } from '../LayerList/LayerList';
 
 const drawerWidth = 450;
 
 
-const SideDrawerContainer = () => {
+const SideDrawerContainer = (props: LayerListProps) => {
     const [open, setOpen] = useState(true);
 
     const handleDrawerClose = () => {
@@ -34,7 +35,6 @@ const SideDrawerContainer = () => {
         }
     }
 
-    
     return (
         <div style={{width: drawerWidth + 22, height: '100%', display: 'flex'}}>
             <Drawer
@@ -53,10 +53,10 @@ const SideDrawerContainer = () => {
                 anchor="left"
                 open={open}
             >
-                <div style={{backgroundColor: 'rgb(255, 255, 255, 0.8)', width: drawerWidth, height: '100%'}}>
-                    <SideDrawer />
+                <div style={{backgroundColor: 'rgb(255, 255, 255, 0.8)', width: drawerWidth, height: '100%', overflowY: 'auto', overflowX: 'hidden'}}>
+                    <SideDrawer layers={props.layers} />
                     <button 
-                        style={getButtonStyles(drawerWidth , Toggle)}
+                        style={getButtonStyles(drawerWidth, Toggle)}
                         onClick={handleDrawerClose}
                     />
                 </div>
@@ -74,7 +74,6 @@ const SideDrawerContainer = () => {
             }
         </div>
     )
-
 }
 
 export default SideDrawerContainer;
