@@ -53,6 +53,7 @@ const LayerList = (props: LayerListProps) => {
                             {
                                 layer.mapLayers.map((mapLayer: any) => (
                                     <CustomTreeItem
+                                        key={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
                                         itemId={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
                                         label={mapLayer.layerName}
                                         labelIcon={LayerListIconComponent}
