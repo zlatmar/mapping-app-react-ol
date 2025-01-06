@@ -25,10 +25,6 @@ const LayerListIconComponent = (props: SvgIconProps) => {
 const LayerList = (props: LayerListProps) => {
     const { layers } = props;
 
-    React.useEffect(() => {
-        console.log('LayerList props: ', props);
-    }, [props.layers]);
-
     if (!layers.length) {
         return null;
     }
@@ -48,34 +44,31 @@ const LayerList = (props: LayerListProps) => {
             >
                 {
                     layers.map((layer, index) => (
-                        <>
-                            <CustomTreeItem
-                                itemId={`main-tree-item-${layer.mapName}`}
-                                key={`main-tree-item-${layer.mapName}`}
-                                label={layer.mapName}
-                                labelIcon={LayerListIconComponent}
-                            >
-                                {
-                                    layer.mapLayers.map((mapLayer: any) => (
-                                        <CustomTreeItem
-                                            itemId={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
-                                            label={mapLayer.layerName}
-                                            labelIcon={LayerListIconComponent}
-                                            // color="#1a73e8"
-                                            // bgColor="#e8f0fe"
-                                            colorForDarkMode="#B8E7FB"
-                                            bgColorForDarkMode={alpha('#00b4ff', 0.2)}
-                                            rowIcons={[
-                                                <RowButtonIcon title={"Zoom to"} image={ZoomToIcon} clickHandler={() => console.log('Zoom to clickHandler')} />,
-                                                <RowButtonIcon title={"Legend"} image={LegendIcon} clickHandler={() => console.log('Legend clickHandler')} />,
-                                                <RowButtonIcon title={"Remove"} image={Delete} clickHandler={() => console.log('Delete clickHandler')} />
-                                            ]}
-                                        />
-                                    ))
-                                }
-                            </CustomTreeItem>
-                        </>
-
+                        <CustomTreeItem
+                            itemId={`main-tree-item-${layer.mapName}`}
+                            key={`main-tree-item-${layer.mapName}`}
+                            label={layer.mapName}
+                            labelIcon={LayerListIconComponent}
+                        >
+                            {
+                                layer.mapLayers.map((mapLayer: any) => (
+                                    <CustomTreeItem
+                                        itemId={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
+                                        label={mapLayer.layerName}
+                                        labelIcon={LayerListIconComponent}
+                                        // color="#1a73e8"
+                                        // bgColor="#e8f0fe"
+                                        colorForDarkMode="#B8E7FB"
+                                        bgColorForDarkMode={alpha('#00b4ff', 0.2)}
+                                        rowIcons={[
+                                            <RowButtonIcon title={"Zoom to"} image={ZoomToIcon} clickHandler={() => console.log('Zoom to clickHandler')} />,
+                                            <RowButtonIcon title={"Legend"} image={LegendIcon} clickHandler={() => console.log('Legend clickHandler')} />,
+                                            <RowButtonIcon title={"Remove"} image={Delete} clickHandler={() => console.log('Delete clickHandler')} />
+                                        ]}
+                                    />
+                                ))
+                            }
+                        </CustomTreeItem>
                     ))
                 }
             </SimpleTreeView>
