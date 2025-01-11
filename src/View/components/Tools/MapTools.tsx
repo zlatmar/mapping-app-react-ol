@@ -5,9 +5,58 @@ import MapMeasure from '../../resources/map_measure.svg';
 import MapSelect from '../../resources/map_select.svg';
 import ZoomInIcon from '../../resources/zoom_in.svg';
 import ZoomOutIcon from '../../resources/zoom_out.svg';
+import { useState } from 'react';
 
 
-const MapTools = () => {
+enum MapToolsEnum {
+    IDENTIFY = 'Identify',
+    MEASURE = 'Measure',
+    SELECTION = 'Selection'
+}
+
+type MapToolsProps = {
+    identifyHandler: (isIdentify: boolean) => void;
+}
+
+
+const MapTools = (props: MapToolsProps) => {
+    const [selectedTool, setSelectedTool] = useState<MapToolsEnum | ''>('');
+
+    const identifyHandler = () => {
+        if (selectedTool !== MapToolsEnum.IDENTIFY) {
+            setSelectedTool(MapToolsEnum.IDENTIFY);
+            props.identifyHandler(true);
+        } else {
+            setSelectedTool('');
+            props.identifyHandler(false);
+        }
+    }
+
+    const mapMeasureHandler = () => {
+        if (selectedTool !== MapToolsEnum.MEASURE) {
+            setSelectedTool(MapToolsEnum.MEASURE);
+        } else {
+            setSelectedTool('');
+        }
+        console.log('Measure');
+    }
+
+    const mapSelectHandler = () => {
+        if (selectedTool !== MapToolsEnum.SELECTION) {
+            setSelectedTool(MapToolsEnum.SELECTION);
+        } else {
+            setSelectedTool('');
+        }
+        console.log('Selection');
+    }
+
+    const zoomInHandler = () => {
+        console.log('Zoom In');
+    }
+
+    const zoomOutHandler = () => {
+        console.log('Zoom Out');
+    }
 
     return (
         <div style={{
@@ -19,11 +68,11 @@ const MapTools = () => {
             flexDirection: 'column',
             gap: '0.5rem',
         }}>
-            <MapButton clickHandler={() => console.log('Identify')} icon={MapInfo}/>
-            <MapButton clickHandler={() => console.log('Measure')} icon={MapMeasure}/>
-            <MapButton clickHandler={() => console.log('Selection')} icon={MapSelect}/>
-            <MapButton clickHandler={() => console.log('Zoom in')} icon={ZoomInIcon} />
-            <MapButton clickHandler={() => console.log('Zoom out')} icon={ZoomOutIcon} />
+            <MapButton selected={selectedTool === MapToolsEnum.IDENTIFY} clickHandler={identifyHandler} icon={MapInfo}/>
+            <MapButton selected={selectedTool === MapToolsEnum.MEASURE} clickHandler={mapMeasureHandler} icon={MapMeasure}/>
+            <MapButton selected={selectedTool === MapToolsEnum.SELECTION} clickHandler={mapSelectHandler} icon={MapSelect}/>
+            <MapButton clickHandler={zoomInHandler} icon={ZoomInIcon} />
+            <MapButton clickHandler={zoomOutHandler} icon={ZoomOutIcon} />
         </div>
     );
 };

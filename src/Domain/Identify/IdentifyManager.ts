@@ -9,8 +9,8 @@ export default class IdentifyManager extends IdentifyManagerCore {
         super(map, layersManager);
     }
 
-    public static getInstance(map: IAppMap, layersManager: ILayersManager) {
-        if (!IdentifyManager.instance) {
+    public static getInstance(map?: IAppMap, layersManager?: ILayersManager) {
+        if (!IdentifyManager.instance && map && layersManager) {
             IdentifyManager.instance = new IdentifyManager(map, layersManager);
         }
         return IdentifyManager.instance;

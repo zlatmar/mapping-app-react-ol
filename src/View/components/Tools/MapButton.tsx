@@ -4,19 +4,31 @@ import { useState } from 'react';
 type MapButtonProps = {
     title?: string;
     icon?: string;
+    selected?: boolean;
     clickHandler: (ev: any) => void;
 }
 
 const MapButton = (props: MapButtonProps) => {
-    const [selected, setSelected] = useState(false);
 
     return (
         <div 
-            style={{
+            style={
+                props.selected ?
+                {
+                    cursor: 'pointer', 
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    borderRadius: '5px',
+                    padding: '0.5rem',
+                    border: '1px solid #fff'
+                }
+                :
+                {
                 cursor: 'pointer', 
                 background: 'rgba(0, 0, 0, 0.5)',
                 borderRadius: '5px',
-                padding: '0.5rem'
+                padding: '0.5rem',
+                border: '1px solid #808080'
+
             }}
             onClick={props.clickHandler}
         >

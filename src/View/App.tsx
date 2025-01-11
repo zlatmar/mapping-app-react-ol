@@ -39,14 +39,22 @@ const App = () => {
     
             const map = mapManager?.map;
             if (map) {
-                const identifyManager = IdentifyManager.getInstance(map, layersManager);
-                identifyManager.activate();
+                IdentifyManager.getInstance(map, layersManager);
             }
   
         } catch (error) {
           console.error('Error loading app:', error);
         }
-      };
+    };
+
+    const identifyHandler = (isIdentify: boolean) => {
+        const identifyManager = IdentifyManager.getInstance();
+        if (isIdentify) {
+            identifyManager?.activate();
+        } else {
+            identifyManager?.deactivate();
+        }
+    }
 
     if (loading) {
         return <div>Loading...</div>;
@@ -54,7 +62,7 @@ const App = () => {
 
     return (
         <div>
-            <MapTools />
+            <MapTools identifyHandler={identifyHandler} />
             <SideDrawerContainer layers={layerList} />
             <AppMap />
         </div>
