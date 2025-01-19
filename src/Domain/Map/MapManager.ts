@@ -9,10 +9,8 @@ export default class MapManager extends MapManagerCore {
     }
 
     static getInstance(divAnchor?: string, mapSettings?: MapSettings) {
-        if (!MapManager.instance) {
-            if (divAnchor) {
-                MapManager.instance = new MapManager(divAnchor, mapSettings);
-            }
+        if (!MapManager.instance && divAnchor) {
+            MapManager.instance = new MapManager(divAnchor, mapSettings);
         }
         return MapManager.instance;
     }

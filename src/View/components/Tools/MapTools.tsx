@@ -16,6 +16,7 @@ enum MapToolsEnum {
 
 type MapToolsProps = {
     identifyHandler: (isIdentify: boolean) => void;
+    mapMeasureHandler: (isMeasure: boolean) => void;
 }
 
 
@@ -35,8 +36,10 @@ const MapTools = (props: MapToolsProps) => {
     const mapMeasureHandler = () => {
         if (selectedTool !== MapToolsEnum.MEASURE) {
             setSelectedTool(MapToolsEnum.MEASURE);
+            props.mapMeasureHandler(true);
         } else {
             setSelectedTool('');
+            props.mapMeasureHandler(false);
         }
         console.log('Measure');
     }

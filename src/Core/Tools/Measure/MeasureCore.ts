@@ -1,10 +1,15 @@
 import { IMeasure } from "./IMeasure";
+import IAppMap from "../../Map/interfaces/IAppMap";
+import DrawCore from "../Draw/DrawCore";
+
 
 export default class MeasureCore implements IMeasure {
     measuredFeatures: any[];
+    draw: DrawCore;
 
-    constructor() {
+    constructor(map: IAppMap) {
         this.measuredFeatures = [];
+        this.draw = new DrawCore(map);
     }
 
     measureArea(): void {
@@ -13,16 +18,16 @@ export default class MeasureCore implements IMeasure {
     measureLine(): void {
         throw new Error("Method not implemented.");
     }
+
     clear(): void {
-        throw new Error("Method not implemented.");
+        this.draw.clearDraw();
     }
-    stopDraw(): void {
-        throw new Error("Method not implemented.");
+
+    stopMeasure(): void {
+        this.draw.deactivateDrawTool();
     }
+
     startMeasure(type: string): void {
-        throw new Error("Method not implemented.");
-    }
-    onDrawEnd(): void {
-        throw new Error("Method not implemented.");
+        this.draw.activateDrawTool(type);
     }
 }

@@ -8,6 +8,7 @@ import { AppConfig } from './AppConfiguration/types/AppConfig';
 import AppMap from './Components/AppMap';
 import MapTools from './Components/Tools/MapTools';
 import SideDrawerContainer from './Components/SideDrawer/SideDrawerContainer';
+import Measure from '../Domain/Tools/Measure/Measure';
 
 
 const App = () => {
@@ -56,13 +57,29 @@ const App = () => {
         }
     }
 
+    const mapMeasureHandler = (isMapMeasure: boolean) => {
+        if (isMapMeasure) {
+            const map = MapManager.getInstance()?.map;
+            if (map) {
+                const measureTool = Measure.getInstance(map);
+                measureTool?.startMeasure('line');
+                // measureTool?.activateDraw();
+                // measureTool?.activateDrawTool('line');
+            }
+        } else {
+            const measureTool = Measure.getInstance();
+            measureTool?.stopMeasure();
+            measureTool?.clear();
+        }
+    }
+
     if (loading) {
         return <div>Loading...</div>;
     }
 
     return (
         <div>
-            <MapTools identifyHandler={identifyHandler} />
+            <MapTools identifyHandler={identifyHandler} mapMeasureHandler={mapMeasureHandler}/>
             <SideDrawerContainer layers={layerList} />
             <AppMap />
         </div>

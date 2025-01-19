@@ -1,15 +1,16 @@
+import IAppMap from "../../../Core/Map/interfaces/IAppMap";
 import MeasureCore from "../../../Core/Tools/Measure/MeasureCore";
 
 export default class Measure extends MeasureCore {
     private static instance: Measure | null = null;
     
-    private constructor() {
-        super();
+    private constructor(map: IAppMap) {
+        super(map);
     }
 
-    public static getInstance() {
-        if (!Measure.instance) {
-            Measure.instance = new Measure();
+    public static getInstance(map?: IAppMap) {
+        if (!Measure.instance && map) {
+            Measure.instance = new Measure(map);
         }
         return Measure.instance;
     }
