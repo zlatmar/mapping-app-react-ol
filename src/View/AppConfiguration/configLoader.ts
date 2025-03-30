@@ -1,4 +1,4 @@
-import { AppConfig} from "./AppConfigTypes";
+import { AppConfig} from "./types/AppConfig";
 
 let appConfig = {} as AppConfig;
 

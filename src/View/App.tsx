@@ -28,19 +28,18 @@ const App = () => {
             setLoading(false);
             const configFile = await getAppConfig('/config.json');
             const mapManager = MapManager.getInstance('map', (configFile as AppConfig).mapSettings);
-            const layersManager = LayersManager.getInstance((configFile as AppConfig).layers, mapManager?.map);
+            if (mapManager?.map) {
+                const layersManager = LayersManager.getInstance((configFile as AppConfig).layers, mapManager?.map);
+                layersManager.loadLayers();
+                layersManager.getAppLayers().then((layers) => {
+                    setLayerList(layers);
+                });
+                // setLayerList(layersManager.getMapLayers());
     
-            layersManager.loadLayers();
-
-            layersManager.getAppLayers().then((layers) => {
-                setLayerList(layers);
-            })
-
-            // setLayerList(layersManager.getMapLayers());
-    
-            const map = mapManager?.map;
-            if (map) {
-                IdentifyManager.getInstance(map, layersManager);
+                const map = mapManager?.map;
+                if (map) {
+                    IdentifyManager.getInstance(map, layersManager);
+                }
             }
   
         } catch (error) {

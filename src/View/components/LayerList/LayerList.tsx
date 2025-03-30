@@ -4,18 +4,20 @@ import { SimpleTreeView } from '@mui/x-tree-view';
 import { alpha } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import ZoomToIcon from '../../resources/zoom_to.svg';
-import LegendIcon from '../../resources/legend.svg';
-import Delete from '../../resources/delete.svg';
+import ZoomToIcon from '../../resources/zoom_to.svg?react';
+import LegendIcon from '../../resources/legend.svg?react';
+import Delete from '../../resources/delete.svg?react';
 import { RowButtonIcon } from './RowButtonIcon';
-import VisibilityIcon from '../../resources/eye.svg';
-import HideVisibilityIcon from '../../resources/eye_hide.svg';
+import VisibilityIcon from '../../resources/eye.svg?react';
+import HideVisibilityIcon from '../../resources/eye_hide.svg?react';
 import { LayerListIconComponent } from './LayerListIconComponent';
 
 
 export type LayerListProps = {
     layers: any[];
 }
+
+console.log(<ZoomToIcon />);
 
 
 const LayerList = (props: LayerListProps) => {
@@ -51,16 +53,16 @@ const LayerList = (props: LayerListProps) => {
                                         key={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
                                         itemId={`sub-tree-item-${layer.mapName}-${mapLayer.layerName}`}
                                         label={mapLayer.layerName}
-                                        labelIcon={() => <RowButtonIcon title={"Show"} image={mapLayer.show ? VisibilityIcon : HideVisibilityIcon} clickHandler={() => console.log('Visibility clickHandler')} />
+                                        labelIcon={() => <RowButtonIcon title={"Show"} image={mapLayer.show ? <VisibilityIcon /> : <HideVisibilityIcon />} clickHandler={() => console.log('Visibility clickHandler')} />
                                     }
                                         // color="#1a73e8"
                                         // bgColor="#e8f0fe"
                                         colorForDarkMode="#B8E7FB"
                                         bgColorForDarkMode={alpha('#00b4ff', 0.2)}
                                         rowIcons={[
-                                            <RowButtonIcon title={"Zoom to"} image={ZoomToIcon} clickHandler={() => console.log('Zoom to clickHandler')} />,
-                                            <RowButtonIcon title={"Legend"} image={LegendIcon} clickHandler={() => console.log('Legend clickHandler')} />,
-                                            <RowButtonIcon title={"Remove"} image={Delete} clickHandler={() => console.log('Delete clickHandler')} />
+                                            <RowButtonIcon title={"Zoom to"} image={<ZoomToIcon/>} clickHandler={() => console.log('Zoom to clickHandler')} />,
+                                            <RowButtonIcon title={"Legend"} image={<LegendIcon />} clickHandler={() => console.log('Legend clickHandler')} />,
+                                            <RowButtonIcon title={"Remove"} image={<Delete />} clickHandler={() => console.log('Delete clickHandler')} />
                                         ]}
                                     />
                                 ))
