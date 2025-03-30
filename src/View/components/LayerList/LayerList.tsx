@@ -17,9 +17,6 @@ export type LayerListProps = {
     layers: any[];
 }
 
-console.log(<ZoomToIcon />);
-
-
 const LayerList = (props: LayerListProps) => {
     const { layers } = props;
 
