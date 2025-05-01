@@ -224,13 +224,13 @@ export default class LayersManagerCore implements ILayersManagerCore {
         const mapLayersInfo = [];
 
         try {
-            if (layer.type === MapServiceTypes.ARCGIS_MAP_SERVICE) {
+            if (layer.layerDataType === MapServiceTypes.ARCGIS_MAP_SERVICE) {
                 const result = await axios.get(`${url}?f=json`)
                 const targetLayersInfo = result.data.layers;
                 targetLayersInfo.forEach((layerInfo: any) => {
                     mapLayersInfo.push({id: layerInfo.id, title: layerInfo.name});
                 });
-            } else if (layer.type === MapServiceTypes.WMS) {
+            } else if (layer.layerDataType === MapServiceTypes.WMS) {
                 const result = await axios.get(`${url}?request=GetCapabilities&service=WMS`, {
                     headers: {
                         'Content-Type': 'application/xml'
@@ -252,8 +252,8 @@ export default class LayersManagerCore implements ILayersManagerCore {
 
         return {
             title: layer.title,
-            type: layer.type,
-            layerId: layer.layerId,
+            type: layer.layerDataType,
+            layerId: layer.appLayerId,
             layerUrl: typeof url === 'string' ? url : '',
             show: layer.getVisible(),
             mapLayersInfo

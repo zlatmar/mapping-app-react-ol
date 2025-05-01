@@ -8,28 +8,24 @@ import { ILayerConfigOptions } from '../../../Domain/Layers/interfaces/ILayerCon
 interface DomainLayerOptions extends Options<ImageSource>, ILayerConfigOptions { }
 
 export default class ImageCoreLayer extends LayerImage<ImageSource> implements ILayer {
-    public layerId: string;
-    public title: string;
-    public legendSymbol: string;
-    public removable: boolean;
-    public show: boolean;
-    public type: string;
-
-    // private _title: string;
-    // private _legendSymbol: string;
-    // private _showLegend: boolean;
-    // private _isLegendTemporary: boolean;
+    appLayerId: string;
+    title: string;
+    legendSymbol: string;
+    removable: boolean;
+    show: boolean;
+    layerDataType: string;
 
     constructor(opt_options?: DomainLayerOptions) {
         super(opt_options);
-        this.layerId = opt_options?.layerId || "";
+        this.appLayerId = opt_options?.layerId || "";
         this.title = (opt_options && opt_options.title) || "";
-        this.type = opt_options?.type || "";
+        this.layerDataType = opt_options?.type || "";
         this.legendSymbol = (opt_options && opt_options.legendInfo && opt_options.legendInfo.legendSymbol) || "";
         // this._showLegend = (opt_options && opt_options.legendInfo) ? opt_options.legendInfo.showLegend as boolean : false;
         this.show = (opt_options && opt_options.legendInfo) ? opt_options.legendInfo.showLegend as boolean : false;
         this.removable = (opt_options && opt_options.legendInfo) ? opt_options.legendInfo.isTemporary as boolean : false;
     }
+
 
     setVisibleIndex(index: number) {
         super.setZIndex(index);

@@ -50,9 +50,8 @@ export default class IdentifyManagerCore implements IIdentifyManager {
     }
 
     private identify = async (layer: ILayer, coordinates: [number, number]) => {
-        console.log(layer.type)
         try {
-            if (layer.type === MapServiceTypes.ARCGIS_MAP_SERVICE) {
+            if (layer.layerDataType === MapServiceTypes.ARCGIS_MAP_SERVICE) {
             const layerSource = layer.getSource() as ImageArcGISRest;
             const url = layerSource?.getUrl();
             const result = await axios.get(`${url}?f=json`)
@@ -77,7 +76,7 @@ export default class IdentifyManagerCore implements IIdentifyManager {
                 console.log(queryResult);
             });
             }
-            else if (layer.type === MapServiceTypes.WMS) {
+            else if (layer.layerDataType === MapServiceTypes.WMS) {
                 const layerSource = layer.getSource() as ImageWMS;
                 const url = layerSource.getFeatureInfoUrl(coordinates, this._map.getView().getResolution() as number, "EPSG:3857", {'INFO_FORMAT': 'text/plain'},)
                 if (url) {
@@ -85,7 +84,7 @@ export default class IdentifyManagerCore implements IIdentifyManager {
                     console.log(result.data)
                 }
             }
-            else if (layer.type === MapServiceTypes.ARCGIS_FEATURE_SERVICE) {
+            else if (layer.layerDataType === MapServiceTypes.ARCGIS_FEATURE_SERVICE) {
                 console.log(MapServiceTypes.ARCGIS_FEATURE_SERVICE)
                 const layerSource = layer.getSource() as VectorSource;
                 const url = layerSource.getUrl() as string;
