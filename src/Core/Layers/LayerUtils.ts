@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ILayerLoader } from "./interfaces";
+import { ILayerLoader } from "../../Domain/Layers/interfaces";
 import { Feature } from "ol";
 import { Geometry } from "ol/geom";
 

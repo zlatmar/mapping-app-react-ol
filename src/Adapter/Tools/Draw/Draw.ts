@@ -1,4 +1,4 @@
-import IAppMap from "../../../Core/Map/interfaces/IAppMap";
+import IAppMap from "../../../Domain/Map/interfaces/IAppMap";
 import DrawCore from "../../../Core/Tools/Draw/DrawCore";
 
 export default class Draw extends DrawCore {

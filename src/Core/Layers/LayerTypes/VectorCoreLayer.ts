@@ -1,8 +1,8 @@
 import VectorLayer from "ol/layer/Vector";
 import { Options } from "ol/layer/BaseVector";
-import ILayer from "../interfaces/ILayer";
+import ILayer from "../../../Domain/Layers/interfaces/ILayer";
 import VectorSource from "ol/source/Vector";
-import { ILayerConfigOptions } from "../interfaces/ILayerConfigOptions";
+import { ILayerConfigOptions } from "../../../Domain/Layers/interfaces/ILayerConfigOptions";
 
 
 export interface VectorDomainLayerOptions extends Options<VectorSource>, ILayerConfigOptions { };

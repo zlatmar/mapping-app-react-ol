@@ -1,7 +1,7 @@
 import { ConfigLayer } from "../../Configuration/ConfigLayer";
 import LayersManagerCore from "../../Core/Layers/LayersManagerCore";
-import IAppMap from "../../Core/Map/interfaces/IAppMap";
-import { AppLayer } from "./LayerTypes/AppLayerType";
+import IAppMap from "../../Domain/Map/interfaces/IAppMap";
+import { AppLayer } from "../../Domain/Layers/LayerTypes/AppLayerType";
 
 export default class LayersManager extends LayersManagerCore {
     private static instance: LayersManager | null = null;

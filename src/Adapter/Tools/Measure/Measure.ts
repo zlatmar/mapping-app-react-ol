@@ -1,4 +1,4 @@
-import IAppMap from "../../../Core/Map/interfaces/IAppMap";
+import IAppMap from "../../../Domain/Map/interfaces/IAppMap";
 import MeasureCore from "../../../Core/Tools/Measure/MeasureCore";
 
 export default class Measure extends MeasureCore {

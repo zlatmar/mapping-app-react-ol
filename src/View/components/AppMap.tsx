@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import IdentifyManager from '../../Domain/Identify/IdentifyManager';
+import IdentifyManager from '../../Adapter/Identify/IdentifyManager';
 
 const AppMap = () => {
 

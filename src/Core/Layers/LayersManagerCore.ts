@@ -1,8 +1,8 @@
 import axios from "axios";
-import IAppMap from "../Map/interfaces/IAppMap";
+import IAppMap from "../../Domain/Map/interfaces/IAppMap";
 import ImageCoreLayer from "./LayerTypes/ImageCoreLayer";
 import VectorCoreLayer from "./LayerTypes/VectorCoreLayer";
-import ILayersManagerCore from "./interfaces/ILayersManagerCore";
+import ILayersManagerCore from "../../Domain/Layers/interfaces/ILayersManagerCore";
 
 // mapping library
 import { createXYZ } from "ol/tilegrid";
@@ -14,11 +14,11 @@ import EsriJSON from 'ol/format/EsriJSON';
 import ImageArcGISRest from "ol/source/ImageArcGISRest";
 import ImageWMS from "ol/source/ImageWMS";
 import GeoJSON from "ol/format/GeoJSON";
-import ILayer from "./interfaces/ILayer";
+import ILayer from "../../Domain/Layers/interfaces/ILayer";
 import { ConfigLayer } from "../../Configuration/ConfigLayer";
 import { Options } from 'ol/source/ImageWMS';
 import { MapServiceTypes } from "../../Configuration/MapServiceTypes";
-import { ILayerLoader } from "./interfaces/ILayerLoader";
+import { ILayerLoader } from "../../Domain/Layers/interfaces/ILayerLoader";
 import { arcgisRestLoader } from "./LayerUtils";
 import { Feature } from "ol";
 import { Geometry } from "ol/geom";

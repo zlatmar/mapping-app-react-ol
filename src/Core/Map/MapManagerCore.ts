@@ -1,6 +1,6 @@
-import IAppMap from "./interfaces/IAppMap";
-import AppMapView from "./interfaces/AppMapView";
-import IMapManagerCore from "./interfaces/IMapManagerCore";
+import IAppMap from "../../Domain/Map/interfaces/IAppMap";
+import AppMapView from "../../Domain/Map/interfaces/AppMapView";
+import IMapManagerCore from "../../Domain/Map/interfaces/IMapManagerCore";
 
 // mapping library
 import 'ol/ol.css';
@@ -10,7 +10,7 @@ import { Zoom } from "ol/control";
 import { OSM } from 'ol/source.js';
 import { Tile as TileLayer } from 'ol/layer.js';
 import { MapSettings } from "../../View/AppConfiguration/types/MapSettings";
-import ILayer from "../Layers/interfaces/ILayer";
+import ILayer from "../../Domain/Layers/interfaces/ILayer";
 
 export default class MapManagerCore implements IMapManagerCore {
     private divAnchor: string;

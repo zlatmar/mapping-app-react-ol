@@ -1,7 +1,7 @@
-import { IIdentifyManager } from "./interfaces/IIdentifyManager";
-import IAppMap from "../Map/interfaces/IAppMap";
-import ILayer from "../Layers/interfaces/ILayer";
-import ILayersManager from "../Layers/interfaces/ILayersManagerCore";
+import { IIdentifyManager } from "../../Domain/Identify/interfaces/IIdentifyManager";
+import IAppMap from "../../Domain/Map/interfaces/IAppMap";
+import ILayer from "../../Domain/Layers/interfaces/ILayer";
+import ILayersManager from "../../Domain/Layers/interfaces/ILayersManagerCore";
 import { MapServiceTypes } from "../../Configuration/MapServiceTypes";
 import ImageArcGISRest from "ol/source/ImageArcGISRest";
 import axios from "axios";

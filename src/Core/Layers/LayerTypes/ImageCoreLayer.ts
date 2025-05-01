@@ -1,8 +1,8 @@
 import LayerImage from 'ol/layer/Image';
 import { Options } from 'ol/layer/BaseImage';
-import ILayer from '../interfaces/ILayer';
+import ILayer from '../../../Domain/Layers/interfaces/ILayer';
 import ImageSource from 'ol/source/Image';
-import { ILayerConfigOptions } from '../interfaces/ILayerConfigOptions';
+import { ILayerConfigOptions } from '../../../Domain/Layers/interfaces/ILayerConfigOptions';
 
 
 interface DomainLayerOptions extends Options<ImageSource>, ILayerConfigOptions { }

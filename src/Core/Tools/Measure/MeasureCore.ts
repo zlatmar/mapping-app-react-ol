@@ -1,5 +1,5 @@
-import { IMeasure } from "./IMeasure";
-import IAppMap from "../../Map/interfaces/IAppMap";
+import { IMeasure } from "../../../Domain/Tools/Measure/IMeasure";
+import IAppMap from "../../../Domain/Map/interfaces/IAppMap";
 import DrawCore from "../Draw/DrawCore";
 
 

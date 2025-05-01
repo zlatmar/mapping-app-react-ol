@@ -1,6 +1,6 @@
 import IdentifyManagerCore from "../../Core/Identify/IdentifyManagerCore";
-import ILayersManager from "../../Core/Layers/interfaces/ILayersManagerCore";
-import IAppMap from "../../Core/Map/interfaces/IAppMap";
+import ILayersManager from "../../Domain/Layers/interfaces/ILayersManagerCore";
+import IAppMap from "../../Domain/Map/interfaces/IAppMap";
 
 export default class IdentifyManager extends IdentifyManagerCore {
     private static instance: IdentifyManager | null = null;

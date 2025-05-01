@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
 import { getAppConfig } from './AppConfiguration/configLoader';
-import MapManager from '../Domain/Map/MapManager';
-import LayersManager from '../Domain/Layers/LayerManager';
-import IdentifyManager from '../Domain/Identify/IdentifyManager';
+import MapManager from '../Adapter/Map/MapManager';
+import LayersManager from '../Adapter/Layers/LayerManager';
+import IdentifyManager from '../Adapter/Identify/IdentifyManager';
 import { AppConfig } from './AppConfiguration/types/AppConfig';
 import AppMap from './Components/AppMap';
 import MapTools from './Components/Tools/MapTools';
 import SideDrawerContainer from './Components/SideDrawer/SideDrawerContainer';
-import Measure from '../Domain/Tools/Measure/Measure';
+import Measure from '../Adapter/Tools/Measure/Measure';
 
 
 const App = () => {

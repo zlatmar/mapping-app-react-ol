@@ -1,4 +1,4 @@
-import { Feature } from "../Map/interfaces/Feature";
+import { Feature } from "../../Domain/Map/interfaces/Feature";
 import { ISelectedFeature } from "./interfaces/ISelectedFeature";
 import ISelection from "./interfaces/ISelection";
 

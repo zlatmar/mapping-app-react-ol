@@ -1,4 +1,4 @@
-import { Feature } from "../../../Map/interfaces/Feature";
+import { Feature } from "../../../../Domain/Map/interfaces/Feature";
 
 export interface IDrawCore {
     lines: Feature[];

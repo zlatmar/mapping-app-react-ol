@@ -1,4 +1,4 @@
-import { IDrawCore } from "./interfaces/IDrawCore";
+import { IDrawCore } from '../../../Domain/Tools/Draw/interfaces/IDrawCore';
 import Draw, { DrawEvent } from 'ol/interaction/Draw';
 import Overlay from "ol/Overlay";
 import Geometry, { Type as GeometryType } from 'ol/geom/Geometry';
@@ -10,7 +10,7 @@ import { LineString, Polygon } from "ol/geom";
 import { getArea, getLength } from 'ol/sphere';
 import BaseEvent from "ol/events/Event";
 import { unByKey } from "ol/Observable";
-import IAppMap from "../../Map/interfaces/IAppMap";
+import IAppMap from "../../../Domain/Map/interfaces/IAppMap";
 import VectorSource from "ol/source/Vector";
 import VectorLayer from "ol/layer/Vector";
 import Style from "ol/style/Style";
