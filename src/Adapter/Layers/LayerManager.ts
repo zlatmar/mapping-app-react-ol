@@ -40,15 +40,5 @@ export default class LayersManager extends LayersManagerCore {
 
             resolve(appLayers);
         })
-        // appLayers = mapLayers.map(layer => ({
-        //     mapName: layer.title,
-        //     mapUrl: layer.get('url'),
-        //     wmsUrl
-        //     mapLayers
-        //     show
-        //     orderNum
-        //     selected
-        //     })
-        // );
     }
 }

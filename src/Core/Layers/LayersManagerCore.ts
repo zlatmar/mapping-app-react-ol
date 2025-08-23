@@ -119,10 +119,10 @@ export default class LayersManagerCore implements ILayersManagerCore {
 
         layerInfoSettings.forEach((layerSettings, inx) => {
             let l = this.createLayer(layerSettings);
-            if (l && l.setZIndex) {
-                const layerIndex = layerIndexMax - inx;
-                l.setZIndex(layerIndex);
-            };
+            // if (l && l.setZIndex) {
+            //     const layerIndex = layerIndexMax - inx;
+            //     l.setZIndex(layerIndex);
+            // };
             layerInfos.push(l);
         })
 
