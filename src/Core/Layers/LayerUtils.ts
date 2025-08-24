@@ -1,7 +1,7 @@
 import axios from "axios";
-import { ILayerLoader } from "../../Domain/Layers/interfaces";
 import { Feature } from "ol";
 import { Geometry } from "ol/geom";
+import { ILayerLoader } from "./LayerTypes/ILayerLoader";
 
 export const arcgisRestLoader = ({ extent, resolution, projection, layerUrl, esrijsonFormat }: ILayerLoader): Promise<Feature<Geometry>[]> => {
     return new Promise(async (resolve, reject) => {

@@ -18,7 +18,7 @@ import ILayer from "../../Domain/Layers/interfaces/ILayer";
 import { ConfigLayer } from "../../Configuration/ConfigLayer";
 import { Options } from 'ol/source/ImageWMS';
 import { MapServiceTypes } from "../../Configuration/MapServiceTypes";
-import { ILayerLoader } from "../../Domain/Layers/interfaces/ILayerLoader";
+import { ILayerLoader } from "./LayerTypes/ILayerLoader";
 import { arcgisRestLoader } from "./LayerUtils";
 import { Feature } from "ol";
 import { Geometry } from "ol/geom";
